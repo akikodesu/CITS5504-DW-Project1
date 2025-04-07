@@ -32,23 +32,40 @@ This report leverages three datasets sourced from a government open-data portal:
 
 ### Dimension Schemas & Concept Hierarchies
 
-1. Dim_Time
-   Month Season Year
-   Schema:
-2. Dim_Date
-   Dayweek Day_of_Week
-3. Dim_TimeofDay
-   Time Hour_bin Time_of_Day
-4. Dim_Density
-   Capital_City State
-5. Dim_Holiday
-   boolean
-6. Dim_Crash
-7. Dim_Road
-8. Dim_Vehicle
-   bollean
+1. **Dim_Time**
 
-### StarNet Diagram & Query Capabilities
+   - Schema: TimeID(Primary Key), Month, Season, Year
+     ![concept hierarchy](/Users/akiko/Desktop/CITS5504-DW-Project1/Dim_Time.png)
+
+2. **Dim_Date**
+
+   - Schema: DateID(Primary Key), Dayweek, Day_of_Week
+     ![concept hierarchy](/Users/akiko/Desktop/CITS5504-DW-Project1/Dim_Date.png)
+
+3. **Dim_DaynNight**
+
+   - Schema: TimeofDayID(Primary Key), Time, Hour_Bin, Time_of_Day
+     ![concept hierarchy](/Users/akiko/Desktop/CITS5504-DW-Project1/Dim_TimeofDay.png)
+
+4. **Dim_Density**
+
+   - Schema: DensityID(Primary Key), Capital_City, State
+     ![concept hierarchy](/Users/akiko/Desktop/CITS5504-DW-Project1/Dim_Density.png)
+
+5. **Dim_Holiday**
+
+   - Schema: HolidayID(Primary Key), Christmas_Period, Easter_Period
+
+6. **Dim_Crash**
+   - Schema: CrashID(original ID，not increment field, primary key), Crash_Type
+7. **Dim_Road**
+   - Schema: RoadID(Primary Key), Speed_Limit, Road_Type
+8. **Dim_Vehicle**
+
+- Schema: VehicleID(Primary Key), Bus_Invl, Heavy_Rigid_Truck, Articulated_Truck
+-
+
+### StarNet Diagram
 
 ### Business Queries
 
