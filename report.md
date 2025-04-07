@@ -26,6 +26,10 @@ This report leverages three datasets sourced from a government open-data portal:
 3. Total area (km²) in population density classes by capital city.csv
    - presents the total land area (in km²) of each Australian capital city categorized by population density classes (people per square kilometre)
 
+### Overall Architecture
+
+This data warehouse employs a **star schema**, consisting of one fact table **(Fact_Fatality)** and nine dimension tables. Each dimension **(Dim_Time, Dim_Date, Dim_DaynNight, Dim_Density, Dim_Holiday, Dim_Crash, Dim_Road, Dim_VehicleInvl, Dim_Victim)** is directly linked to the fat table via foreign keys, enabling multidimensional analysis and rapid aggregation.
+
 ---
 
 ## Dimensional Model Design
@@ -35,25 +39,25 @@ This report leverages three datasets sourced from a government open-data portal:
 1. **Dim_Time**
 
    - Schema:
-     - TimeID(PK): Unique identifier for each time record
-     - Month: Month of the year (1-12)
-     - Season: Fiscal season (e.g., Winter, Spring)
-     - Year: Calendar year (e.g., 2024)
+     - timeid(PK): Unique identifier for each time record
+     - month: Month of the year (1-12)
+     - season: Fiscal season (e.g., Winter, Spring)
+     - year: Calendar year (e.g., 2024)
 
 2. **Dim_Date**
 
    - Schema:
-     - DateID(PK): Unique identifier for each calendar date
-     - Dayweek: Day of a week (e.g., Monday)
-     - Day_of_Week: Day category (Weekday vs. Weekend)
+     - dateid(PK): Unique identifier for each calendar date
+     - dayweek: Day of a week (e.g., Monday)
+     - day_of_week: Day category (Weekday vs. Weekend)
 
 3. **Dim_DaynNight**
 
    - Schema:
-     - TimeofDayID(PK): Unique identifier for each time-of-day record
-     - Time: Exact clock time (HH:MM)
-     - Hour_Bin: Two-hour grouping (e.g., 06:00-08:00)
-     - Time_of_Day: Broad category (Day vs. Night, defined as 06:00–18:00 / 18:00–06:00)
+     - timeofdayid(PK): Unique identifier for each time-of-day record
+     - time: Exact clock time (HH:MM)
+     - hour_bin: Two-hour grouping (e.g., 06:00-08:00)
+     - time_of_day: Broad category (Day vs. Night, defined as 06:00–18:00 / 18:00–06:00)
 
 4. **Dim_Density**
 
@@ -70,41 +74,41 @@ This report leverages three datasets sourced from a government open-data portal:
 5. **Dim_Holiday**
 
    - Schema:
-     - HolidayID(PK): Unique identifier for each holiday record
-     - Christmas_Period: Flag indicating whether the date falls within the Christmas period (Yes/No)
-     - Easter_Period: Flag indicating whether the date falls within the Easter period (Yes/No)
+     - holidayid(PK): Unique identifier for each holiday record
+     - christmas_period: Flag indicating whether the date falls within the Christmas period (Yes/No)
+     - easter_period: Flag indicating whether the date falls within the Easter period (Yes/No)
      - They are independent Boolean fields and do not sonsitute a concept hierarchy
 
 6. **Dim_Crash**
 
    - Schema:
-     - CrashID(PK): Original crash identifier from source csv file
-     - Crash_Type: Classification of crash (e.g., Single vs. Multiple )
+     - crashid(PK): Original crash identifier from source csv file
+     - crash_type: Classification of crash (e.g., Single vs. Multiple )
      - No concept hierarchy because they are classification type
 
 7. **Dim_Road**
 
    - Schema:
-     - RoadID(PK): Unique identifier for each road record
-     - Speed_Limit: Posted speed limit (km/h)
-     - Road_Type: Classfication of road (e.g., Local Road, Arterial Road)
-     - Both Speed_Limit and Road_Type are flat attributes with no parent-child relationships
+     - roadid(PK): Unique identifier for each road record
+     - speed_limit: Posted speed limit (km/h)
+     - road_type: Classfication of road (e.g., Local Road, Arterial Road)
+     - Both speed_limit and road_type are flat attributes with no parent-child relationships
 
 8. **Dim_VehicleInvl**
 
    - Schema:
-     - VehicleInvlID(PK): Unique identifier for each vehicle involvement record
-     - Bus_Invl: Flag indicating bus involvement (Yes/No)
-     - Heavy_Rigid_Truck_Invl: Flag indicating heavy rigid truck involvement (Yes/No)
-     - Articulated_Truck_Invl: Flag indicating articulated truck involvement (Yes/No)
+     - vehicleinvlid(PK): Unique identifier for each vehicle involvement record
+     - bus_invl: Flag indicating bus involvement (Yes/No)
+     - heavy_rigid_truck_invl: Flag indicating heavy rigid truck involvement (Yes/No)
+     - articulated_truck_invl: Flag indicating articulated truck involvement (Yes/No)
      - They are independent Boolean fields and do not sonsitute a concept hierarchy
 
 9. **Dim_Victim**
    - Schema:
-     - VictimID(PK): Unique identifier for each victim involvement record
-     - Road_User: Role of the individual in the vehicle (e.g., Driver, Passenger)
-     - Gender: Individual's gender (e.g., Male, Female)
-     - Age_Group: Age category of the individual (e.g., 17_to_25)
+     - victimid(PK): Unique identifier for each victim involvement record
+     - road_user: Role of the individual in the vehicle (e.g., Driver, Passenger)
+     - gender: Individual's gender (e.g., Male, Female)
+     - age_group: Age category of the individual (e.g., 17_to_25)
      - They are independent attributes with no parent-child relationships among them, and therefore do not from a concept hierarchy.
 
 ---
@@ -113,7 +117,21 @@ This report leverages three datasets sourced from a government open-data portal:
 
 ### Fact Table Design
 
+1. **Table name and Grain**
+   - Name: Fact_Fatality
+   - Grain Definition: ""
+2. **Schema**
+3. **Reasons**
+
 ### Business Queries
+
+1. 在不同季节的夜间时段，各州死亡人数的死亡人数分布如何？
+
+2. 不同事故类型下，各年龄组的死亡人数分布如何？（用 fact table 里的年龄组）
+
+3. 每日两小时时段（Hour_Bin）内，按是否涉及公交车（Bus_Invl）划分的死亡人数分布如何？
+
+4. 在圣诞节期间与非圣诞节期间，不同道路类型（Road_Type）和公交车参与情况（Bus_Invl）下的死亡人数有何差异？比如：是否在高速公路上圣诞节期间由于客流量增加，涉及公交车的事故死亡人数显著上升？
 
 ### StarNet Diagram
 
@@ -125,7 +143,7 @@ This report leverages three datasets sourced from a government open-data portal:
 
 ### Schema Creation & Data Loading
 
----
+### 所有维度表和事实表塞进 postgresql 中生成了 erd 图
 
 ## Analytics & Visualization
 
