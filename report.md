@@ -30,7 +30,23 @@ This report leverages three datasets sourced from a government open-data portal:
 
 ## Dimensional Model Design
 
-### Dimension Schemas & Concept Hierarhcies
+### Dimension Schemas & Concept Hierarchies
+
+1. Dim_Time
+   Month Season Year
+   Schema:
+2. Dim_Date
+   Dayweek Day_of_Week
+3. Dim_TimeofDay
+   Time Hour_bin Time_of_Day
+4. Dim_Density
+   Capital_City State
+5. Dim_Holiday
+   boolean
+6. Dim_Crash
+7. Dim_Road
+8. Dim_Vehicle
+   bollean
 
 ### StarNet Diagram & Query Capabilities
 
