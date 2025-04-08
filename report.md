@@ -152,10 +152,13 @@ Based on our fact and dimension tables, we can ask the following five business q
 Q1. How are fatalities distributed across states during nighttime hours in different seasons?
 适合填充地图 choropleth map
 Q2. How are fatalities distributed among age groups for each crash type?
-堆积条形图或分组条形图 stacked/grouped bar chart
+堆积条形图或分组条形图 stacked/grouped bar chart or treemap
 Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
+分组树状图 clustered/grouped bar chart
 Q4. How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?
+grouped bar chart
 Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
+散点图 scatter plot
 
 ### StarNet Diagram
 
