@@ -150,14 +150,16 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
 Based on our fact and dimension tables, we can ask the following five business questions:
 
 Q1. How are fatalities distributed across states during nighttime hours in different seasons?
+适合填充地图 choropleth map
 Q2. How are fatalities distributed among age groups for each crash type?
+堆积条形图或分组条形图 stacked/grouped bar chart
 Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
-Q4. How do fatality counts by road type and bus involvement differ during the Christmas period compared to non-Christmas periods?
+Q4. How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?
 Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
 
 ### StarNet Diagram
 
-Q1.
+Q1. Select
 Q2.
 Q3.
 Q4.
