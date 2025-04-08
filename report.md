@@ -70,7 +70,7 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
      - **population_structure_2023**: offers up-to-date overall population statistics to serve as a baseline for comparative analysis with traffic and fatality data
      - **abs_pct_65_plus_group_2023**: indicates the proportion of the population aged 65 and above, enabling targeted analysis of the elderly group’s vulnerability and risk in traffic incidents
    - Concept Hierarchy:
-     - dsfsfs
+     - dsfsfsv
 
 5. **dim_holiday**
 
@@ -125,18 +125,18 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
 ### Fact Table Design
 
 1. **Table name and Grain**
-   - Name: Fact_Fatality
+   - Name: fact_fatality
    - Grain Definition: "One row represents a single fatality event in the fact table, linking a specific victim to the corresponding time, date, day/night period, holiday, crash, road segment, and vehicle involvement dimensions, and including demographic and derived age‑group flags."
 2. **Schema**
    | Fields | Description |
    | ---------- | -------------- |
-   | fatality | incremental, PK of the fact table |
-   | time_id | incremental, FK of the Dim_Time |
-   | date_id | incremental, FK of the Dim_Date |
-   | time_of_day_id | incremental, FK of the Dim_DaynNight |
-   | 空着 | incremental, FK of the Dim |
+   | fatality_id | incremental, PK of the fact table |
+   | time_id | incremental, FK of the dim_time |
+   | date_id | incremental, FK of the dim_date |
+   | time_of_day_id | incremental, FK of the dim_daynight |
+   | population_age_id | incremental, FK of the dim_state_aging_level |
    | holiday_id | incremental, FK of the Dim_Holiday |
-   | crash_id | incremental, FK of the Dim_Crash |
+   | crash_dim_id | incremental, FK of the Dim_Crash |
    | road_id | incremental, FK of the Dim_Road |
    | vehicle_invl_id | incremental, FK of the Dim_VehichleInvl |
    | victim_id | incremental, FK of the Dim_Victim |
@@ -149,16 +149,19 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
 
 Based on our fact and dimension tables, we can ask the following five business questions:
 
-1. How are fatalities distributed across states during nighttime hours in different seasons?在不同季节的夜间时段，各州死亡人数的死亡人数分布如何？
-
-2. How are fatalities distributed among age groups for each crash type?不同事故类型下，各年龄组的死亡人数分布如何？
-
-3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement? 每日两小时时段（Hour_Bin）内，按是否涉及公交车（Bus_Invl）划分的死亡人数分布如何？
-
-4. During the Christmas period versus non-Christmas periods, how do fatalities differ by road type and bus involvement? 在圣诞节期间与非圣诞节期间，不同道路类型（Road_Type）和公交车参与情况（Bus_Invl）下的死亡人数有何差异？比如：是否在高速公路上圣诞节期间由于客流量增加，涉及公交车的事故死亡人数显著上升？
-5.
+Q1. How are fatalities distributed across states during nighttime hours in different seasons?
+Q2. How are fatalities distributed among age groups for each crash type?
+Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
+Q4. How do fatality counts by road type and bus involvement differ during the Christmas period compared to non-Christmas periods?
+Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
 
 ### StarNet Diagram
+
+Q1.
+Q2.
+Q3.
+Q4.
+Q5.
 
 ---
 
