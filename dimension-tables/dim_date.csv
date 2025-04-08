@@ -1,0 +1,12 @@
+date_id,dayweek,day_of_week
+1,Friday,Weekday
+2,Friday,Weekend
+3,Monday,Weekend
+4,Monday,Weekday
+5,Saturday,Weekend
+6,Sunday,Weekend
+7,Thursday,Weekday
+8,Tuesday,Weekday
+9,Wednesday,Weekday
+10,Friday,Unknown
+11,Monday,Unknown

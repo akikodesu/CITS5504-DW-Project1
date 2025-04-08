@@ -1,0 +1,107 @@
+victim_type_id,gender,age_group,road_user
+1,Male,65_to_74,Driver
+2,Female,17_to_25,Driver
+3,Female,26_to_39,Driver
+4,Female,40_to_64,Passenger
+5,Male,40_to_64,Motorcycle rider
+6,Female,26_to_39,Passenger
+7,Male,17_to_25,Motorcycle rider
+8,Female,40_to_64,Driver
+9,Male,40_to_64,Pedestrian
+10,Male,40_to_64,Driver
+11,Male,65_to_74,Pedestrian
+12,Female,75_or_older,Driver
+13,Male,17_to_25,Driver
+14,Male,0_to_16,Pedestrian
+15,Male,26_to_39,Driver
+16,Female,65_to_74,Pedestrian
+17,Female,40_to_64,Pedestrian
+18,Male,26_to_39,Pedestrian
+19,Male,17_to_25,Passenger
+20,Male,65_to_74,Motorcycle rider
+21,Female,65_to_74,Passenger
+22,Male,75_or_older,Driver
+23,Male,26_to_39,Motorcycle rider
+24,Male,40_to_64,Pedal cyclist
+25,Female,75_or_older,Pedestrian
+26,Female,65_to_74,Driver
+27,Male,75_or_older,Motorcycle rider
+28,Male,26_to_39,Passenger
+29,Male,0_to_16,Driver
+30,Female,17_to_25,Passenger
+31,,65_to_74,Motorcycle rider
+32,Female,75_or_older,Passenger
+33,Female,,Pedestrian
+34,Male,65_to_74,Other/-9
+35,Male,65_to_74,Pedal cyclist
+36,Male,75_or_older,Passenger
+37,Male,26_to_39,Pedal cyclist
+38,Female,0_to_16,Driver
+39,Female,40_to_64,Motorcycle rider
+40,Female,26_to_39,Pedestrian
+41,Male,0_to_16,Passenger
+42,Male,65_to_74,Passenger
+43,Female,17_to_25,Pedestrian
+44,Male,0_to_16,Other/-9
+45,Male,75_or_older,Pedestrian
+46,Male,0_to_16,Unknown
+47,Female,0_to_16,Passenger
+48,Male,26_to_39,Other/-9
+49,Female,26_to_39,Motorcycle rider
+50,Male,40_to_64,Passenger
+51,Female,0_to_16,Pedestrian
+52,Female,26_to_39,Unknown
+53,Male,0_to_16,Motorcycle rider
+54,Male,0_to_16,Pedal cyclist
+55,Female,0_to_16,Unknown
+56,Male,,Pedestrian
+57,Male,75_or_older,Pedal cyclist
+58,Female,40_to_64,Unknown
+59,Female,,Other/-9
+60,Male,17_to_25,Motorcycle pillion passenger
+61,Female,,Passenger
+62,Female,65_to_74,Pedal cyclist
+63,Female,40_to_64,Pedal cyclist
+64,,75_or_older,Passenger
+65,Male,,Pedal cyclist
+66,,40_to_64,Motorcycle rider
+67,Female,17_to_25,Motorcycle rider
+68,,,Passenger
+69,Male,17_to_25,Pedestrian
+70,Male,75_or_older,Other/-9
+71,Female,17_to_25,Motorcycle pillion passenger
+72,Female,65_to_74,Motorcycle rider
+73,Female,0_to_16,Motorcycle pillion passenger
+74,Male,,Other/-9
+75,Female,0_to_16,Other/-9
+76,Male,,Passenger
+77,Female,26_to_39,Pedal cyclist
+78,Male,26_to_39,Unknown
+79,Male,40_to_64,Other/-9
+80,Female,40_to_64,Other/-9
+81,Female,26_to_39,Motorcycle pillion passenger
+82,Male,40_to_64,Unknown
+83,Female,17_to_25,Pedal cyclist
+84,Male,17_to_25,Pedal cyclist
+85,Female,40_to_64,Motorcycle pillion passenger
+86,,26_to_39,Motorcycle rider
+87,Female,26_to_39,Other/-9
+88,Female,17_to_25,Other/-9
+89,Male,40_to_64,Motorcycle pillion passenger
+90,Male,,Driver
+91,Male,26_to_39,Motorcycle pillion passenger
+92,Female,75_or_older,Motorcycle rider
+93,Male,17_to_25,Other/-9
+94,Female,75_or_older,Pedal cyclist
+95,,,Pedestrian
+96,Female,75_or_older,Other/-9
+97,Female,0_to_16,Pedal cyclist
+98,Female,65_to_74,Other/-9
+99,,0_to_16,Passenger
+100,Female,,Driver
+101,Male,0_to_16,Motorcycle pillion passenger
+102,Female,0_to_16,Motorcycle rider
+103,Female,65_to_74,Motorcycle pillion passenger
+104,,0_to_16,Driver
+105,Female,,Motorcycle pillion passenger
+106,Male,,Motorcycle rider
