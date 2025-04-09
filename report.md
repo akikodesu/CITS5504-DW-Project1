@@ -44,6 +44,7 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
      - **season**: facilitates quarterly reports and seasonal pattern detection
      - **year**: provides the top-level time granularity for long-term trend analysis and aligns with annual reporting cycles
    - Concept Hierarchy:
+     ![dim_time](./concept_hierarchy/dim_time.png)
 
 2. **dim_date**
 
@@ -52,6 +53,7 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
      - **dayweek**: patterns for each day
      - **day_of_week**: show markedly different traffic and accident profiles
    - Concept Hierarchy:
+     ![dim_date](./concept_hierarchy/dim_date.png)
 
 3. **dim_daynight**
 
@@ -61,16 +63,17 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
      - **time_bin**: balances granularity and usability by grouping times into manageable intervals—this helps reveal patterns like “peak accident windows” without overwhelming users with 1‑minute resolution
      - **time_of_day**: captures broad diurnal differences in traffic conditions and visibility, supporting quick comparisons between daytime and nighttime risk
    - Concept Hierarchy:
+     ![dim_date](./concept_hierarchy/dim_daynight.png)
 
 4. **dim_state_aging_level**
 
    - Schema:
-     - **population_age_id**(PK): unique identifier for each state's population information
+     - **population_age_id(PK)**: unique identifier for each state's population information
      - **state**: provides geographical context to associate demographic data with specific regions
      - **population_structure_2023**: offers up-to-date overall population statistics to serve as a baseline for comparative analysis with traffic and fatality data
      - **abs_pct_65_plus_group_2023**: indicates the proportion of the population aged 65 and above, enabling targeted analysis of the elderly group’s vulnerability and risk in traffic incidents
    - Concept Hierarchy:
-     - dsfsfsv
+     - This dimension table does not exhibit a conceptual hierarchy because it provides information at only a single, state-level layer. Besides state, the other two fields are used for direct comparison between states rather thane for constructing multi-level aggregations.
 
 5. **dim_holiday**
 
@@ -84,7 +87,7 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
 6. **dim_crash**
 
    - Schema:
-     - **crash_dim_id**: unique identifier for each crash record
+     - **crash_dim_id(PK)**: unique identifier for each crash record
      - **crash_id**: original crash identifier from source csv file
      - **crash_type**: differentiates accident scenarios by their complexity and severity, enabling analysis of how single‑vehicle versus multi‑vehicle incidents impact fatality outcomes
    - Concept Hierarchy:
@@ -150,7 +153,7 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
 Based on our fact and dimension tables, we can ask the following five business questions:
 
 Q1. How are fatalities distributed across states during nighttime hours in different seasons?
-适合填充地图 choropleth map
+
 Q2. How are fatalities distributed among age groups for each crash type?
 堆积条形图或分组条形图 stacked/grouped bar chart or treemap
 Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
@@ -162,11 +165,20 @@ Q5. How are fatality counts in 2023 distributed across states with varying perce
 
 ### StarNet Diagram
 
-Q1. Select
+Q1.
+![q1_starnet](./starnets/Q1_starnet.png)
+
 Q2.
+![q2_starnet](./starnets/Q2_starnet.png)
+
 Q3.
+![q3_starnet](./starnets/Q3_starnet.png)
+
 Q4.
+![q4_starnet](./starnets/Q4_starnet.png)
+
 Q5.
+![q5_starnet](./starnets/Q5_starnet.png)
 
 ---
 
@@ -176,15 +188,15 @@ Q5.
 
 ### Schema Creation & Data Loading
 
-所有维度表和事实表塞进 postgresql 中生成了 erd 图
+![ERD](./ERD.png)
 
 ## Analytics & Visualization
 
 ### Business Query Visualizations
 
-### Association Rule Mining Setup
+## Association Rule Mining Setup
 
-### Interpretation & Suggestions
+## Interpretation & Suggestions
 
 ---
 
