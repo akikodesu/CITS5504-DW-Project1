@@ -28,7 +28,7 @@ This report leverages three datasets sourced from a government open-data portal:
 
 ### Overall Architecture
 
-This data warehouse employs a **star schema**, consisting of one fact table **(fact_fatality)** and nine dimension tables. Each dimension **(dim_time, dim_date, dim_daynnight, dim_state_aging_level, dim_holiday, dim_crash, dim_road, Dim_vehicle_invl, dim_victim)** is directly linked to the fat table via foreign keys, enabling multidimensional analysis and rapid aggregation.
+This data warehouse employs a **star schema**, consisting of one fact table **(fact_fatality)** and nine dimension tables. Each dimension **(dim_time, dim_date, dim_daynnight, dim_state_aging_level, dim_holiday, dim_crash, dim_road, dim_vehicle_invl, dim_victim)** is directly linked to the fat table via foreign keys, enabling multidimensional analysis and rapid aggregation.
 
 ---
 
@@ -151,20 +151,19 @@ This data warehouse employs a **star schema**, consisting of one fact table **(f
 ### StarNet Diagram
 
 Q1. How are fatalities distributed across states during nighttime hours in different seasons?
-![q1_starnet](./starnets/Q1_starnet.png)
+![Q1_starnet](./starnets/Q1_starnet.png)
 
 Q2. How are fatalities distributed among age groups for each crash type?
-![q2_starnet](./starnets/Q2_starnet.png)
+![Q2_starnet](./starnets/Q2_starnet.png)
 
 Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
-![q3_starnet](./starnets/Q3_starnet.png)
+![Q3_starnet](./starnets/Q3_starnet.png)
 
 Q4. How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?
-grouped bar chart
-![q4_starnet](./starnets/Q4_starnet.png)
+![Q4_starnet](./starnets/Q4_starnet.png)
 
 Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
-![q5_starnet](./starnets/Q5_starnet.png)
+![Q5_starnet](./starnets/Q5_starnet.png)
 
 ---
 
@@ -180,12 +179,44 @@ Q5. How are fatality counts in 2023 distributed across states with varying perce
 
 ### Business Query Visualizations
 
-Q1. How are fatalities distributed across states during nighttime hours in different seasons?
+**Q1. How are fatalities distributed across states during nighttime hours in different seasons?**
 ![Q1](./visiualization/Q1.png)
 
-## Association Rule Mining Setup
+- Fatal accidents during the daytime are significantly higher than those at night, suggesting that overall road usage or exposure risk is greater during the day, although nighttime still requires attention.
+- Both spring and autumn exhibit relatively high fatal accident numbers during both day and night, with nighttime fatalities peaking in spring. This indicates that these seasons may have specific risk factors (such as changes in lighting or peak travel periods).
+- Nighttime fatalities in winter are slightly lower compared to other seasons, which might be due to reduced travel frequency at night or enhanced traffic control measures.
 
-## Interpretation & Suggestions
+**Q2. How are fatalities distributed among age groups for each crash type?**
+![Q2](./visiualization/Q2.png)
+
+- Single-vehicle and multiple-vehicle crashes exhibit similar primary characteristics in their age-group distributions.
+- The propotion of fatalities among middle-aged and young adult groups (26-39 years and 40-64 years) is significantly higher in both single-vehicle and multiple-vehicle crashes.
+- The overall number of fatalities among children and the elderly is relatively low, possibly due to factors such as lower travel frequency, different modes of transportation, and protective regulations (e.g., child car seat requirements and reduced driving frequency among the elderly).
+
+**Q3: Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?**
+![Q3](./visiualization/Q3.png)
+
+- The proportion of fatalities in bus-involved incidents is extremely small, indicating that bus accidents occur less frequently or have a lower fatality rate relative to other vehicle incidents.
+- Fatalities peak noticeably during the daytime to early evening period (approximately 10:00–18:00), this period usually corresponds to highter traffic volume and more frequent trips, increasing the risk of accidents; although bus-related incidents are relatively rare, they also concentrate during these peak hours.
+
+**Q4: How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?**
+![Q4](./visiualization/Q4.png)
+
+- In contrast, during the Christmas period (True), fatality counts across all road types are relatively lower.
+- During the non-Christmas period, the fatality count for the “Undetermined” road type is extremely high, far exceeding that of other road types, possibly due to incomplete registration or inconsistent data entry.
+- During the Christmas period, there is almost no significant difference among the various road types.
+
+**Q5: How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?**
+![Q5](./visiualization/Q5.png)
+
+- The proportion of the population aged 65 and above is not entirely positively correlated with the absolute number of fatal accidents (as seen in TAS); factors such as each state’s total population, traffic environment, and other socioeconomic variables must also be considered.
+- In states with a medium to high proportion of older adults (14%–<18% or higher), regions with larger populations may show higher total fatality counts.
+
+## Association Rule Mining
+
+### Mining Process
+
+### Interpretation & Suggestions
 
 ---
 
