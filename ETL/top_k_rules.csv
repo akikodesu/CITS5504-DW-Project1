@@ -1,0 +1,4 @@
+antecedents,consequents,support,confidence,lift
+"frozenset({'easter_period=False', 'gender=Male', 'speed_level=Very High'})",frozenset({'road_user=Driver'}),0.2035366931918656,0.5957556935817805,1.3142182356953263
+"frozenset({'gender=Male', 'speed_level=Very High'})",frozenset({'road_user=Driver'}),0.2046684350132626,0.5952785064033328,1.3131655758575569
+"frozenset({'gender=Male', 'speed_level=Very High'})","frozenset({'easter_period=False', 'road_user=Driver'})",0.2035366931918656,0.591986833307617,1.312457577274699

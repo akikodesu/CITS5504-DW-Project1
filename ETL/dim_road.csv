@@ -1,0 +1,103 @@
+road_id,speed_limit,national_road_type
+1,100,Arterial Road
+2,80,Local Road
+3,50,Local Road
+4,100,National or State Highway
+5,100,Sub-arterial Road
+6,90,Undetermined
+7,60,Local Road
+8,70,National or State Highway
+9,110,National or State Highway
+10,100,Local Road
+11,80,Collector Road
+12,,Local Road
+13,60,National or State Highway
+14,60,Collector Road
+15,110,Undetermined
+16,40,Collector Road
+17,,Undetermined
+18,60,Undetermined
+19,80,Undetermined
+20,50,National or State Highway
+21,70,Sub-arterial Road
+22,80,National or State Highway
+23,70,Undetermined
+24,50,Collector Road
+25,20,Undetermined
+26,90,Sub-arterial Road
+27,60,Arterial Road
+28,60,Sub-arterial Road
+29,100,Collector Road
+30,80,Arterial Road
+31,90,National or State Highway
+32,100,Undetermined
+33,80,Sub-arterial Road
+34,70,Arterial Road
+35,10,Pedestrian Thoroughfare
+36,50,Undetermined
+37,40,Sub-arterial Road
+38,70,Local Road
+39,50,Arterial Road
+40,50,Sub-arterial Road
+41,110,Collector Road
+42,60,Access road
+43,,Access road
+44,90,Local Road
+45,110,Arterial Road
+46,70,Collector Road
+47,5,Collector Road
+48,40,Local Road
+49,50,Access road
+50,100,Access road
+51,80,Pedestrian Thoroughfare
+52,40,Arterial Road
+53,110,Sub-arterial Road
+54,130,Undetermined
+55,130,National or State Highway
+56,80,Access road
+57,30,Local Road
+58,,National or State Highway
+59,40,Access road
+60,10,Local Road
+61,30,Undetermined
+62,80,Busway
+63,70,Access road
+64,40,National or State Highway
+65,90,Arterial Road
+66,25,Collector Road
+67,110,Local Road
+68,20,Pedestrian Thoroughfare
+69,130,Arterial Road
+70,70,Pedestrian Thoroughfare
+71,20,National or State Highway
+72,20,Arterial Road
+73,30,Arterial Road
+74,20,Access road
+75,,Sub-arterial Road
+76,10,Collector Road
+77,50,Pedestrian Thoroughfare
+78,40,Undetermined
+79,130,Access road
+80,50,Busway
+81,110,Access road
+82,20,Local Road
+83,30,Pedestrian Thoroughfare
+84,100,Busway
+85,,Arterial Road
+86,90,Collector Road
+87,30,National or State Highway
+88,60,Pedestrian Thoroughfare
+89,10,National or State Highway
+90,40,Pedestrian Thoroughfare
+91,25,Arterial Road
+92,10,Undetermined
+93,,Collector Road
+94,15,Local Road
+95,25,Sub-arterial Road
+96,30,Sub-arterial Road
+97,10,Arterial Road
+98,5,Local Road
+99,75,Collector Road
+100,100,Pedestrian Thoroughfare
+101,5,Undetermined
+102,75,Undetermined
