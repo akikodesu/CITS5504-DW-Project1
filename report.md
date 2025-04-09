@@ -23,12 +23,12 @@ This report leverages three datasets sourced from a government open-data portal:
    - provides a macro-level view of where and when fatal accidents occur.
 2. bitre_fatalities_dec2024.xlsx
    - enables analysis of how demographic and situational factors influence accident outcomes.
-3. Total area (km²) in population density classes by capital city.csv
-   - presents the total land area (in km²) of each Australian capital city categorized by population density classes (people per square kilometre)
+3. Median age, sex ratio and broad age groups, by LGA, 2023.csv
+   - shows population counts by sex, sex ratios, median ages, and the distribution of residents across different age groups for various local government areas in 2023.
 
 ### Overall Architecture
 
-This data warehouse employs a **star schema**, consisting of one fact table **(Fact_Fatality)** and nine dimension tables. Each dimension **(Dim_Time, Dim_Date, Dim_DaynNight, Dim_Density, Dim_Holiday, Dim_Crash, Dim_Road, Dim_VehicleInvl, Dim_Victim)** is directly linked to the fat table via foreign keys, enabling multidimensional analysis and rapid aggregation.
+This data warehouse employs a **star schema**, consisting of one fact table **(fact_fatality)** and nine dimension tables. Each dimension **(dim_time, dim_date, dim_daynnight, dim_state_aging_level, dim_holiday, dim_crash, dim_road, Dim_vehicle_invl, dim_victim)** is directly linked to the fat table via foreign keys, enabling multidimensional analysis and rapid aggregation.
 
 ---
 
@@ -148,36 +148,22 @@ This data warehouse employs a **star schema**, consisting of one fact table **(F
    | is_general(25-65) | derived, enable fast and consistent age-group filtering and aggregation without repetitive range logic |
    | is_young(18<=age<=25) | derived, enable fast and consistent age-group filtering and aggregation without repetitive range logic |
 
-### Business Questions
-
-Based on our fact and dimension tables, we can ask the following five business questions:
-
-Q1. How are fatalities distributed across states during nighttime hours in different seasons?
-
-Q2. How are fatalities distributed among age groups for each crash type?
-堆积条形图或分组条形图 stacked/grouped bar chart or treemap
-Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
-分组树状图 clustered/grouped bar chart
-Q4. How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?
-grouped bar chart
-Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
-散点图 scatter plot
-
 ### StarNet Diagram
 
-Q1.
+Q1. How are fatalities distributed across states during nighttime hours in different seasons?
 ![q1_starnet](./starnets/Q1_starnet.png)
 
-Q2.
+Q2. How are fatalities distributed among age groups for each crash type?
 ![q2_starnet](./starnets/Q2_starnet.png)
 
-Q3.
+Q3. Within each two-hour time bin, how do fatalities compare between involving buses and those without bus involvement?
 ![q3_starnet](./starnets/Q3_starnet.png)
 
-Q4.
+Q4. How do fatality counts by road type differ during the Christmas period compared to non-Christmas periods?
+grouped bar chart
 ![q4_starnet](./starnets/Q4_starnet.png)
 
-Q5.
+Q5. How are fatality counts in 2023 distributed across states with varying percentages of the population aged 65 and above?
 ![q5_starnet](./starnets/Q5_starnet.png)
 
 ---
@@ -193,6 +179,9 @@ Q5.
 ## Analytics & Visualization
 
 ### Business Query Visualizations
+
+Q1. How are fatalities distributed across states during nighttime hours in different seasons?
+![Q1](./visiualization/Q1.png)
 
 ## Association Rule Mining Setup
 
